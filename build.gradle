@@ -1,4 +1,14 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.1.4.RELEASE")
+    }
+}
+
 apply plugin: 'java'
+apply plugin: 'spring-boot'
 
 repositories {
     mavenCentral()
@@ -7,6 +17,11 @@ repositories {
 dependencies {
     compile 'org.slf4j:slf4j-api:1.7.5'
     compile("org.springframework.boot:spring-boot-starter-web:1.1.4.RELEASE")
+    compile("org.springframework.boot:spring-boot-gradle-plugin:1.1.4.RELEASE")
 
     testCompile 'junit:junit:4.11'
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '2.0'
 }
